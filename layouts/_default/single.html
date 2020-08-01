@@ -1,0 +1,37 @@
+{{define "main"}}
+
+<header id="articleHeader">
+  <h1>{{.Title}}</h1>
+  <aside>{{.Date}}</aside>
+</header>
+
+{{.TableOfContents}}
+
+<main id="content">
+{{.Content}}
+</main>
+
+<ul id="tags">
+  {{range (.GetTerms "tags")}}
+  <li><a href="{{.RelPermalink}}">{{.LinkTitle}}</a></li>
+  {{end}}
+</ul>
+
+<div id="adjacent">
+{{with .PrevInSection}}<a href="{{.RelPermalink}}">← {{.Title}}</a>{{end}}
+{{with .NextInSection}}<a href="{{.RelPermalink}}">{{.Title}} →</a>{{end}}
+</div>
+
+{{$related := .Site.RegularPages.Related . | first 5}}
+{{with $related}}
+<div id="related">
+<h3>related</h3>
+<ul>
+  {{range .}}
+  <li><a href="{{.RelPermalink}}">{{.Title}}</a></li>
+  {{end}}
+</ul>
+</div>
+{{end}}
+
+{{end}}
