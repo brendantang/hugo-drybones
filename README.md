@@ -2,11 +2,13 @@
 
 scaffold for a hugo theme with nothing but semantic markup
 
-## development
+run example site with: `make dev`, then visit `http://localhost:1313`.
 
-`scripts/dev.sh`
+## Use as starting point for your own Hugo theme
 
-## usage
+Clone [this repo](https://github.com/brendantang/hugo-drybones) or use it as a [template](https://github.com/brendantang/hugo-drybones/generate).
+
+## Install as the theme for your site
 
 ~~~sh
 cd /path/to/your/hugo/site
@@ -15,3 +17,4 @@ git submodule add https://github.com/brendantang/hugo-drybones themes/drybones
 ~~~
 
 Add `theme = "drybones"` to `config.toml` 
+
